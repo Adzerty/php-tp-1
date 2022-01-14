@@ -42,7 +42,7 @@ public function posePiece(int $rowNum,int $colNum,PieceQuantik $piece)
 
 }
 
-public function __toString()
+public function __toString():string
 {
    return "coucou";
 }
