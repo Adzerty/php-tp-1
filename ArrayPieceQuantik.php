@@ -60,12 +60,22 @@ class ArrayPieceQuantik{
         $arrayTmp.add(PieceQuantik::initBlackCylindre());
         $arrayTmp.add(PieceQuantik::initBlackSphere());
 
+        $arrayTmp.add(PieceQuantik::initBlackCube());
+        $arrayTmp.add(PieceQuantik::initBlackCone());
+        $arrayTmp.add(PieceQuantik::initBlackCylindre());
+        $arrayTmp.add(PieceQuantik::initBlackSphere());
+
         return $arrayTmp;
     }
 
     public static function initPiecesBlanches():ArrayPieceQuantik{
         $arrayTmp = new ArrayPieceQuantik();
 
+        $arrayTmp.add(PieceQuantik::initWhiteCube());
+        $arrayTmp.add(PieceQuantik::initWhiteCone());
+        $arrayTmp.add(PieceQuantik::initWhiteCylindre());
+        $arrayTmp.add(PieceQuantik::initWhiteSphere());
+        
         $arrayTmp.add(PieceQuantik::initWhiteCube());
         $arrayTmp.add(PieceQuantik::initWhiteCone());
         $arrayTmp.add(PieceQuantik::initWhiteCylindre());
