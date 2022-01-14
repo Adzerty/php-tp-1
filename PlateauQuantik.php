@@ -45,7 +45,20 @@ public function __toString()
 
 public static function getCornerFromCoord(int $rowNum, int $colNum):int
 {
-    
+    if ($rowNum = 0 || $rowNum = 1 ) {
+        if ($colNum < 2) {
+            return self::NW;
+        } else {
+            return self::NE;
+        }
+    }else{
+        if ($colNum < 2) {
+            return self::SW;
+        } else {
+            return self::SE;
+        }
+    }
+
 }
 
 }
