@@ -13,23 +13,23 @@ class ArrayPieceQuantik{
     }
 
     /**
-     * @return array
+     * @return PieceQuantik
      */
-    public function getPieceQuantik(int $pos): array
+    public function getPieceQuantik(int $pos): PieceQuantik
     {
         return $this->piecesQuantik[$pos];
     }
 
-    /**
-     * @param array $piecesQuantik
-     */
+
     public function setPieceQuantik(int $pos, PieceQuantik $piece)
     {
         $this->piecesQuantik[$pos] = $piece;
     }
 
     public function addPieceQuantik(PieceQuantik $piece){
-        $this->piecesQuantik[] = $piece;
+        if(count($this->piecesQuantik) < taille) {
+            $this->piecesQuantik[] = $piece;
+        }
     }
 
     public function removePieceQuantik(int $pos){
@@ -54,6 +54,7 @@ class ArrayPieceQuantik{
 
     public static function initPiecesNoires():ArrayPieceQuantik{
         $arrayTmp = new ArrayPieceQuantik();
+        $arrayTmp.setTaille(8);
 
         $arrayTmp.add(PieceQuantik::initBlackCube());
         $arrayTmp.add(PieceQuantik::initBlackCone());
@@ -70,12 +71,13 @@ class ArrayPieceQuantik{
 
     public static function initPiecesBlanches():ArrayPieceQuantik{
         $arrayTmp = new ArrayPieceQuantik();
+        $arrayTmp.setTaille(8);
 
         $arrayTmp.add(PieceQuantik::initWhiteCube());
         $arrayTmp.add(PieceQuantik::initWhiteCone());
         $arrayTmp.add(PieceQuantik::initWhiteCylindre());
         $arrayTmp.add(PieceQuantik::initWhiteSphere());
-        
+
         $arrayTmp.add(PieceQuantik::initWhiteCube());
         $arrayTmp.add(PieceQuantik::initWhiteCone());
         $arrayTmp.add(PieceQuantik::initWhiteCylindre());
