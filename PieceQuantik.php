@@ -1,14 +1,14 @@
 <?php
 
 class PieceQuantik{
-    public static int $WHITE = 0;
-    public static int $BLACK = 1;
+    public const WHITE = 0;
+    public const BLACK = 1;
 
-    public static int $VOID = 0;
-    public static int $CUBE = 1;
-    public static int $CONE = 2;
-    public static int $CYLINDRE = 3;
-    public static int $SPHERE = 4;
+    public const VOID = 0;
+    public const CUBE = 1;
+    public const CONE = 2;
+    public const CYLINDRE = 3;
+    public const SPHERE = 4;
 
     protected int $forme;
     protected int $couleur;
@@ -35,34 +35,34 @@ class PieceQuantik{
     }
 
 
-    public function initVoid(): PieceQuantik{
+    public static function initVoid(): PieceQuantik{
         return new PieceQuantik();
     }
 
-    public function initWhiteCube(): PieceQuantik{
-        return new PieceQuantik(1);
+    public static function initWhiteCube(): PieceQuantik{
+        return new PieceQuantik(self::CUBE);
     }
-    public function initWhiteCone(): PieceQuantik{
-        return new PieceQuantik(2);
+    public static function initWhiteCone(): PieceQuantik{
+        return new PieceQuantik(self::CONE);
     }
-    public function initWhiteCylindre(): PieceQuantik{
-        return new PieceQuantik(3);
+    public static function initWhiteCylindre(): PieceQuantik{
+        return new PieceQuantik(self::CYLINDRE);
     }
-    public function initWhiteSphere(): PieceQuantik{
-        return new PieceQuantik(4);
+    public static function initWhiteSphere(): PieceQuantik{
+        return new PieceQuantik(self::SPHERE);
     }
 
-    public function initBlackCube(): PieceQuantik{
-        return new PieceQuantik(1, 1);
+    public static function initBlackCube(): PieceQuantik{
+        return new PieceQuantik(self::CUBE, self::BLACK);
     }
-    public function initBlackCone(): PieceQuantik{
-        return new PieceQuantik(2, 1);
+    public static function initBlackCone(): PieceQuantik{
+        return new PieceQuantik(self::CONE, self::BLACK);
     }
-    public function initBlackCylindre(): PieceQuantik{
-        return new PieceQuantik(3, 1);
+    public static function initBlackCylindre(): PieceQuantik{
+        return new PieceQuantik(self::CYLINDRE, self::BLACK);
     }
-    public function initBlackSphere(): PieceQuantik{
-        return new PieceQuantik(4, 1);
+    public static function initBlackSphere(): PieceQuantik{
+        return new PieceQuantik(self::SPHERE, self::BLACK);
     }
 }
 
