@@ -1,6 +1,10 @@
 <?php
+include("PlateauQuantik.php");
+include("ActionQuantik.php");
+include("PieceQuantik.php");
+
 class ArrayPieceQuantik{
-    protected $piecesQuantik;
+    protected array $piecesQuantik;
     protected int $taille;
 
     public function __construct(){
@@ -9,10 +13,17 @@ class ArrayPieceQuantik{
     }
 
     public function __toString():string{
-        return "tableau";
+        $sRet = "|";
+
+        for($i = 0; $i<$this->taille; $i++){
+            $sRet .= $this->piecesQuantik[$i]." |";
+        }
+
+        return $sRet.'\n';
     }
 
     /**
+     * @param int $pos
      * @return PieceQuantik
      */
     public function getPieceQuantik(int $pos): PieceQuantik
@@ -27,7 +38,7 @@ class ArrayPieceQuantik{
     }
 
     public function addPieceQuantik(PieceQuantik $piece){
-        if(count($this->piecesQuantik) < taille) {
+        if(count($this->piecesQuantik) < $this->taille) {
             $this->piecesQuantik[] = $piece;
         }
     }
@@ -54,36 +65,35 @@ class ArrayPieceQuantik{
 
     public static function initPiecesNoires():ArrayPieceQuantik{
         $arrayTmp = new ArrayPieceQuantik();
-        $arrayTmp.setTaille(8);
+        $arrayTmp->setTaille(8);
 
-        $arrayTmp.add(PieceQuantik::initBlackCube());
-        $arrayTmp.add(PieceQuantik::initBlackCone());
-        $arrayTmp.add(PieceQuantik::initBlackCylindre());
-        $arrayTmp.add(PieceQuantik::initBlackSphere());
+        $arrayTmp->piecesQuantik[] = PieceQuantik::initBlackCube();
+        $arrayTmp->piecesQuantik[] = PieceQuantik::initBlackCone();
+        $arrayTmp->piecesQuantik[] = PieceQuantik::initBlackCylindre();
+        $arrayTmp->piecesQuantik[] = PieceQuantik::initBlackSphere();
 
-        $arrayTmp.add(PieceQuantik::initBlackCube());
-        $arrayTmp.add(PieceQuantik::initBlackCone());
-        $arrayTmp.add(PieceQuantik::initBlackCylindre());
-        $arrayTmp.add(PieceQuantik::initBlackSphere());
+        $arrayTmp->piecesQuantik[] = PieceQuantik::initBlackCube();
+        $arrayTmp->piecesQuantik[] = PieceQuantik::initBlackCone();
+        $arrayTmp->piecesQuantik[] = PieceQuantik::initBlackCylindre();
+        $arrayTmp->piecesQuantik[] = PieceQuantik::initBlackSphere();
 
         return $arrayTmp;
     }
 
     public static function initPiecesBlanches():ArrayPieceQuantik{
         $arrayTmp = new ArrayPieceQuantik();
-        $arrayTmp.setTaille(8);
+        $arrayTmp->setTaille(8);
 
-        $arrayTmp.add(PieceQuantik::initWhiteCube());
-        $arrayTmp.add(PieceQuantik::initWhiteCone());
-        $arrayTmp.add(PieceQuantik::initWhiteCylindre());
-        $arrayTmp.add(PieceQuantik::initWhiteSphere());
+        $arrayTmp->piecesQuantik[] = PieceQuantik::initWhiteCube();
+        $arrayTmp->piecesQuantik[] = PieceQuantik::initWhiteCone();
+        $arrayTmp->piecesQuantik[] = PieceQuantik::initWhiteCylindre();
+        $arrayTmp->piecesQuantik[] = PieceQuantik::initWhiteSphere();
 
-        $arrayTmp.add(PieceQuantik::initWhiteCube());
-        $arrayTmp.add(PieceQuantik::initWhiteCone());
-        $arrayTmp.add(PieceQuantik::initWhiteCylindre());
-        $arrayTmp.add(PieceQuantik::initWhiteSphere());
+        $arrayTmp->piecesQuantik[] = PieceQuantik::initWhiteCube();
+        $arrayTmp->piecesQuantik[] = PieceQuantik::initWhiteCone();
+        $arrayTmp->piecesQuantik[] = PieceQuantik::initWhiteCylindre();
+        $arrayTmp->piecesQuantik[] = PieceQuantik::initWhiteSphere();
 
         return $arrayTmp;
     }
 }
-?>
