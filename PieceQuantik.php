@@ -1,8 +1,4 @@
 <?php
-include("PlateauQuantik.php");
-include("ActionQuantik.php");
-include("ArrayPieceQuantik.php");
-
 class PieceQuantik{
     public const WHITE = 0;
     public const BLACK = 1;
@@ -16,7 +12,7 @@ class PieceQuantik{
     protected int $forme;
     protected int $couleur;
 
-    private function __construct(int $forme = 0, int $couleur = 0){
+    private function __construct($forme = 0, $couleur = 0){
         $this->forme=$forme;
         $this->couleur=$couleur;
     }
@@ -31,14 +27,14 @@ class PieceQuantik{
 
     public function __toString(): string{
         $formePiece = "";
-
+        if($this->forme == 0)return "Piece <b>vide</b>";
         switch($this->forme){
-            case 0: $formePiece = "cubique"; break;
-            case 1: $formePiece = "conique"; break;
-            case 2: $formePiece = "cylindrique"; break;
-            case 3: $formePiece = "sphérique"; break;
+            case 1: $formePiece = "cubique"; break;
+            case 2: $formePiece = "conique"; break;
+            case 3: $formePiece = "cylindrique"; break;
+            case 4: $formePiece = "sphérique"; break;
         }
-        return "Piece ".$this->couleur==0?"blanche":"noire"." de forme ".$formePiece;
+        return "Piece <b>" . ($this->couleur==0 ? "blanche" : "noire") . "</b> de forme <b>$formePiece </b>";
     }
 
 

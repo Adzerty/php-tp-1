@@ -1,7 +1,5 @@
 <?php
-include("ActionQuantik.php");
-include("PieceQuantik.php");
-include("ArrayPieceQuantik.php");
+
 
 class PlateauQuantik
 {
@@ -95,14 +93,16 @@ class PlateauQuantik
 
     public function __toString():string
     {
-        $retour = "";
+        $retour = "<table style='border: 2px solid #000'>";
         for ($i=0;$i<self::NBROWS;$i++){
+            $retour.="<tr>";
             for ($j=0;$j<self::NBCOLS;$j++){
-                $retour = $retour->$this->cases[$i]->getPieceQuantik($j)->toString();
+                $retour .= "<td style='border: 2px solid #000'>".$this->cases[$i]->getPieceQuantik($j)."</td>";
             }
+            $retour.="</tr>";
         }
 
-        return $retour;
+        return $retour."</table>";
     }
 
     public static function getCornerFromCoord(int $rowNum, int $colNum):int

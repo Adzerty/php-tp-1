@@ -1,7 +1,4 @@
 <?php
-include("PlateauQuantik.php");
-include("ActionQuantik.php");
-include("PieceQuantik.php");
 
 class ArrayPieceQuantik{
     protected array $piecesQuantik;
@@ -13,13 +10,13 @@ class ArrayPieceQuantik{
     }
 
     public function __toString():string{
-        $sRet = "|";
+        $sRet = "<ul>";
 
         for($i = 0; $i<$this->taille; $i++){
-            $sRet .= $this->piecesQuantik[$i]." |";
+            $sRet .= "<li>".$this->piecesQuantik[$i]."</li>";
         }
 
-        return $sRet.'\n';
+        return $sRet."</ul>";
     }
 
     /**
