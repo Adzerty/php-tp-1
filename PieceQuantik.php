@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * @author : Colin PALLIER & Adrien PESTEL
+ * Classe permettant de simuler une piece de jeu
+ * https://github.com/Adzerty/php-tp-1
+ */
 class PieceQuantik{
     public const WHITE = 0;
     public const BLACK = 1;

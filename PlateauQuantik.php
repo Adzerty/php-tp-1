@@ -1,17 +1,29 @@
 <?php
 
-
+/**
+ * @author : Colin PALLIER & Adrien PESTEL
+ * Classe permettant de simuler un plateau de jeu
+ * https://github.com/Adzerty/php-tp-1
+ */
 class PlateauQuantik
 {
+    //Definit la taille du plateau de jeu
     public const NBROWS = 4;
     public const NBCOLS = 4;
+
+
+    //Permet d'identifier un coin selon un numero
     public const NW = 0;
     public const NE = 1;
     public const SW = 2;
     public const SE = 3;
 
+    //Tableau d'ArrayPieceQuantik permettant de simuler le plateau de jeu
     protected array $cases;
 
+    /**
+     * Permet d'instancier un PlateauQuantik
+     */
     public function __construct()
     {
         $this->cases = array();
@@ -77,7 +89,7 @@ class PlateauQuantik
      * @param int $dir
      * @return ArrayPieceQuantik
      *
-     * retourne une liste de pieceQuantik en fonction de la zone selectionné
+     * retourne une liste de pieceQuantik en fonction de la zone selectionnée
      */
     public function getCorner(int $dir): ArrayPieceQuantik
     {

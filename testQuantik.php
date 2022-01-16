@@ -4,6 +4,7 @@ include_once("ArrayPieceQuantik.php");
 include_once("PlateauQuantik.php");
 include_once("ActionQuantik.php");
 
+
 echo "Création d'une pièce noire cubique : ";
 $piece_cube_noir = PieceQuantik::initBlackCube();
 
@@ -69,5 +70,3 @@ echo "suppression du premier element d'une array de piece quantik";
 $set_noir->removePieceQuantik(0);
 
 echo $set_noir."\n";
-
-echo $set_noir->getPieceQuantik(0);

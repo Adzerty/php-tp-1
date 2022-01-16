@@ -1,6 +1,10 @@
 <?php
 
-
+/**
+ * @author : Colin PALLIER & Adrien PESTEL
+ * Classe permettant de simuler les actions possibles
+ * https://github.com/Adzerty/php-tp-1
+ */
 class ActionQuantik
 {
     protected PlateauQuantik $plateau;

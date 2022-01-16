@@ -1,14 +1,26 @@
 <?php
-
+/**
+ * @author : Colin PALLIER & Adrien PESTEL
+ * Classe permettant de simuler un tableau de pièces
+ * https://github.com/Adzerty/php-tp-1
+ */
 class ArrayPieceQuantik{
-    protected array $piecesQuantik;
-    protected int $taille;
+    protected array $piecesQuantik; //Tableau de pieces quantiks
+    protected int $taille;          //On suppose que taille correspond à la taille maximale d'une ArrayPieceQuantik
 
+
+    /**
+     * Permet d'instancier un ArrayPieceQuantik vide
+     */
     public function __construct(){
         $this->piecesQuantik = array();
         $this->taille = 0;
     }
 
+    /**
+     * Permet de retourner la liste des pieces quantik de cet ArrayPieceQuantik
+     * @return string
+     */
     public function __toString():string{
         $sRet = "<ul>\n";
 
@@ -28,18 +40,30 @@ class ArrayPieceQuantik{
         return $this->piecesQuantik[$pos];
     }
 
-
+    /**
+     * @param int $pos
+     * @param PieceQuantik $piece
+     * @return void
+     */
     public function setPieceQuantik(int $pos, PieceQuantik $piece)
     {
         $this->piecesQuantik[$pos] = $piece;
     }
 
+    /**
+     * @param PieceQuantik $piece
+     * @return void
+     */
     public function addPieceQuantik(PieceQuantik $piece){
         if(count($this->piecesQuantik) < $this->taille) {
             $this->piecesQuantik[] = $piece;
         }
     }
 
+    /**
+     * @param int $pos
+     * @return void
+     */
     public function removePieceQuantik(int $pos){
         unset($this->piecesQuantik[$pos]);
     }
@@ -61,6 +85,7 @@ class ArrayPieceQuantik{
     }
 
     /**
+     * Permet de générer le set de pieces noires
      * @return ArrayPieceQuantik
      */
     public static function initPiecesNoires():ArrayPieceQuantik{
@@ -81,9 +106,9 @@ class ArrayPieceQuantik{
     }
 
     /**
+     * Permet de générer le set de pièces blanches
      * @return ArrayPieceQuantik
      */
-
     public static function initPiecesBlanches():ArrayPieceQuantik{
         $arrayTmp = new ArrayPieceQuantik();
         $arrayTmp->setTaille(8);
