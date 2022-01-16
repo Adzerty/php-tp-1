@@ -46,3 +46,19 @@ echo "Ajout d'une pièce conique blanche sur le plateau en position 3|1 : \n";
 $action->posePiece(3,1, PieceQuantik::initWhiteCone());
 
 echo $plateau."\n<br>";
+
+
+echo "Ajout d'une pièce conique blanche sur le plateau en position 0|2 : \n";
+$action->posePiece(0,2, PieceQuantik::initWhiteCone());
+echo $plateau."\n<br>";
+
+echo "Ajout d'une pièce cubique blanche sur le plateau en position 0|3 : \n";
+$action->posePiece(0,3, PieceQuantik::initWhiteCube());
+echo $plateau."\n<br>";
+
+echo "Ajout d'une pièce cylindre blanche sur le plateau en position 1|3 : \n";
+$action->posePiece(1,3, PieceQuantik::initWhiteCylindre());
+echo $plateau."\n<br>";
+
+echo "Verification de la victoire en NE : \n";
+echo $action->isCornerWin(1);
