@@ -34,14 +34,19 @@ class ActionQuantik
 
     public function isValidatePose(int $rowNum,int $colNum,PieceQuantik $piece):bool
     {
-        return  self::isPieceValidate($this->plateau->getRow($rowNum), $piece) &&
-                self::isPieceValidate($this->plateau->getCol($colNum), $piece) &&
+        return  $this->plateau->getPiece($rowNum, $colNum)->getForme() == 0    && // emplacement vide
+                self::isPieceValidate($this->plateau->getRow($rowNum), $piece) && // peut être placée sur la ligne
+                self::isPieceValidate($this->plateau->getCol($colNum), $piece) && // peut être placée sur la colonne
                 self::isPieceValidate($this->plateau->getCorner(
-                            PlateauQuantik::getCornerFromCoord($rowNum, $colNum)), $piece);
+                            PlateauQuantik::getCornerFromCoord($rowNum, $colNum)), $piece); //peut être placée sur le coin
     }
 
     public function posePiece(int $rowNum,int $colNum,PieceQuantik $piece)
-    {}
+    {
+        if($this->isValidatePose($rowNum, $colNum, $piece)){
+            $this->plateau->setPiece($rowNum, $colNum, $piece);
+        }
+    }
 
     /**
      * @return string

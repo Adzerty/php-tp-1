@@ -95,7 +95,8 @@ class PlateauQuantik
     {
         $retour = "<table style='border: 2px solid #000'>\n\t";
         for ($i=0;$i<self::NBROWS;$i++){
-            $retour.="<tr>";
+            $retour.="<tr
+>";
             for ($j=0;$j<self::NBCOLS;$j++){
                 $retour .= "\n\t\t<td style='border: 2px solid #000; width: 75px; height:75px'>".$this->cases[$i]->getPieceQuantik($j)."</td>";
             }
