@@ -1,4 +1,9 @@
 <?php
+/**
+ * @author : Colin PALLIER & Adrien PESTEL
+ * Scripts de tests pour les classes du jeu Quantik
+ * https://github.com/Adzerty/php-tp-1
+ */
 include_once("PieceQuantik.php");
 include_once("ArrayPieceQuantik.php");
 include_once("PlateauQuantik.php");
