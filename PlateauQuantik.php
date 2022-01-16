@@ -93,13 +93,13 @@ class PlateauQuantik
 
     public function __toString():string
     {
-        $retour = "<table style='border: 2px solid #000'>";
+        $retour = "<table style='border: 2px solid #000'>\n\t";
         for ($i=0;$i<self::NBROWS;$i++){
             $retour.="<tr>";
             for ($j=0;$j<self::NBCOLS;$j++){
-                $retour .= "<td style='border: 2px solid #000'>".$this->cases[$i]->getPieceQuantik($j)."</td>";
+                $retour .= "\n\t\t<td style='border: 2px solid #000; width: 75px; height:75px'>".$this->cases[$i]->getPieceQuantik($j)."</td>";
             }
-            $retour.="</tr>";
+            $retour.="\n\t</tr>\n\t";
         }
 
         return $retour."</table>";

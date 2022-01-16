@@ -10,10 +10,10 @@ class ArrayPieceQuantik{
     }
 
     public function __toString():string{
-        $sRet = "<ul>";
+        $sRet = "<ul>\n";
 
         for($i = 0; $i<$this->taille; $i++){
-            $sRet .= "<li>".$this->piecesQuantik[$i]."</li>";
+            $sRet .= "<li>".$this->piecesQuantik[$i]."</li>\n";
         }
 
         return $sRet."</ul>";
