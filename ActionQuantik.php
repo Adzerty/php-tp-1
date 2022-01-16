@@ -5,6 +5,9 @@ class ActionQuantik
 {
     protected PlateauQuantik $plateau;
 
+    /**
+     * @param PlateauQuantik $plateau
+     */
     public function __construct( PlateauQuantik $plateau){
         $this->plateau = $plateau;
     }
@@ -17,21 +20,39 @@ class ActionQuantik
         return $this->plateau;
     }
 
+    /**
+     * @param int $numRow
+     * @return bool
+     */
     public function isRowWin(int $numRow):bool
     {
         return self::isComboWin($this->plateau->getRow($numRow));
     }
 
+    /**
+     * @param int $numCol
+     * @return bool
+     */
     public function isColWin(int $numCol):bool
     {
         return self::isComboWin($this->plateau->getCol($numCol));
     }
 
+    /**
+     * @param int $dir
+     * @return bool
+     */
     public function isCornerWin(int $dir):bool
     {
         return self::isComboWin($this->plateau->getCorner($dir));
     }
 
+    /**
+     * @param int $rowNum
+     * @param int $colNum
+     * @param PieceQuantik $piece
+     * @return bool
+     */
     public function isValidatePose(int $rowNum,int $colNum,PieceQuantik $piece):bool
     {
         return  $this->plateau->getPiece($rowNum, $colNum)->getForme() == 0    && // emplacement vide
@@ -41,6 +62,12 @@ class ActionQuantik
                             PlateauQuantik::getCornerFromCoord($rowNum, $colNum)), $piece); //peut être placée sur le coin
     }
 
+    /**
+     * @param int $rowNum
+     * @param int $colNum
+     * @param PieceQuantik $piece
+     * @return void
+     */
     public function posePiece(int $rowNum,int $colNum,PieceQuantik $piece)
     {
         if($this->isValidatePose($rowNum, $colNum, $piece)){
