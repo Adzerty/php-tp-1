@@ -62,3 +62,12 @@ echo $plateau."\n<br>";
 
 echo "Verification de la victoire en NE : \n";
 echo $action->isCornerWin(1);
+
+echo $set_noir."\n";
+
+echo "suppression du premier element d'une array de piece quantik";
+$set_noir->removePieceQuantik(0);
+
+echo $set_noir."\n";
+
+echo $set_noir->getPieceQuantik(0);
