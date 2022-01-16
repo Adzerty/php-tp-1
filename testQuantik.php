@@ -23,4 +23,6 @@ echo $set_noir."\n";
 echo "Création d'un plateau de jeu : \n";
 $plateau = new PlateauQuantik();
 
+
 echo $plateau."\n";
+

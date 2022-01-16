@@ -26,21 +26,42 @@ class PlateauQuantik
         }
     }
 
+    /**
+     * @param int $numRow
+     * @param int $colNum
+     * @return PieceQuantik
+     */
     public function getPiece(int $numRow, int $colNum):PieceQuantik
     {
         return $this->cases[$numRow]->getPieceQuantik($colNum);
     }
 
+    /**
+     * @param int $rowNum
+     * @param int $colNum
+     * @param PieceQuantik $p
+     * @return void
+     */
     public function setPiece(int $rowNum,int $colNum, PieceQuantik $p)
     {
         $this->cases[$rowNum]->setPieceQuantik($colNum,$p);
 
     }
+
+    /**
+     * @param int $numRow
+     * @return ArrayPieceQuantik
+     */
     public function getRow(int $numRow): ArrayPieceQuantik
     {
         return $this->cases[$numRow];
 
     }
+
+    /**
+     * @param int $numCol
+     * @return ArrayPieceQuantik
+     */
     public function getCol(int $numCol): ArrayPieceQuantik
     {
         $retour = new ArrayPieceQuantik();
@@ -52,6 +73,12 @@ class PlateauQuantik
         return $retour;
     }
 
+    /**
+     * @param int $dir
+     * @return ArrayPieceQuantik
+     *
+     * retourne une liste de pieceQuantik en fonction de la zone selectionné
+     */
     public function getCorner(int $dir): ArrayPieceQuantik
     {
         $retour = new ArrayPieceQuantik();
@@ -91,6 +118,9 @@ class PlateauQuantik
 
     }
 
+    /**
+     * @return string
+     */
     public function __toString():string
     {
         $retour = "<table style='border: 2px solid #000'>\n\t";
@@ -105,6 +135,13 @@ class PlateauQuantik
         return $retour."</table>";
     }
 
+    /**
+     * @param int $rowNum
+     * @param int $colNum
+     * @return int
+     *
+     * retourne la zone à laquelle appartient la coordonnée selectionnée
+     */
     public static function getCornerFromCoord(int $rowNum, int $colNum):int
     {
         if ($rowNum < 2 ) {
