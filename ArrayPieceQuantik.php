@@ -60,6 +60,9 @@ class ArrayPieceQuantik{
         $this->taille = $taille;
     }
 
+    /**
+     * @return ArrayPieceQuantik
+     */
     public static function initPiecesNoires():ArrayPieceQuantik{
         $arrayTmp = new ArrayPieceQuantik();
         $arrayTmp->setTaille(8);
@@ -76,6 +79,10 @@ class ArrayPieceQuantik{
 
         return $arrayTmp;
     }
+
+    /**
+     * @return ArrayPieceQuantik
+     */
 
     public static function initPiecesBlanches():ArrayPieceQuantik{
         $arrayTmp = new ArrayPieceQuantik();
