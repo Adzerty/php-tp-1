@@ -12,10 +12,12 @@ $plateau = new PlateauQuantik();
 
 echo $html->getDebutHTML();
 
+echo "<div class=\"containerPieces\">";
 echo $html->getDivPiecesDisponibles($set_blanc);
+echo $html->getDivPiecesDisponibles($set_noir);
+echo "</div>";
 
 echo $html->getDivPlateauQuantik($plateau);
 
-echo $html->getDivPiecesDisponibles($set_noir);
 
 echo $html -> getFinHTML();
