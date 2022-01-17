@@ -12,6 +12,7 @@ echo $html->getDebutHTML();
 $set_blanc = ArrayPieceQuantik::initPiecesBlanches();
 echo $html->getDivPiecesDisponibles($set_blanc);
 
+
 echo $html->getFormSelectionPiece($set_blanc);
 
 $plateau = new PlateauQuantik();
@@ -22,4 +23,5 @@ $plateau->setPiece(1,2, PieceQuantik::initBlackCube());
 echo $html->getFormPlateauQuantik($plateau, $set_blanc->getPieceQuantik(0));
 
 echo $html->getFinHTML();
+
 

@@ -40,14 +40,15 @@ class HTMLmaker
     }
 
     public function getFormSelectionPiece(ArrayPieceQuantik $arrayPieceQuantik):string{
-        $retour = "<form>\n";
-        $retour .= "\t<select>";
+        $retour = "<form method=\"GET\">\n";
+        $retour .= "\t<select name=\"choixPiece\">";
 
         for($i=0;$i<$arrayPieceQuantik->getTaille();$i++){
             $retour .= "<option>".$i."  ".$arrayPieceQuantik->getPieceQuantik($i)."</option>";
         }
 
         $retour .= "\t</select>";
+        $retour .= "<input type=\"submit\" name=\"valider\" >";
         $retour .= "<form>";
 
         return $retour;
