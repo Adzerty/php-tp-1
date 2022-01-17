@@ -8,10 +8,14 @@ class HTMLmaker
 
     public function getDebutHTML():string{
         $retour = "<html>";
-        $retour .= "\t"
-
-
+        $retour .= "\t";
 
       return $retour;
+    }
+
+    public function getFinHTML():string{
+        $retour = "\t</body>\n";
+        $retour .= "</html>";
+        return $retour;
     }
 }
