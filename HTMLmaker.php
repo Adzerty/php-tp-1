@@ -60,4 +60,34 @@ class HTMLmaker
 
         return $retour;
     }
+
+    public function getFormPlateauQuantik(PlateauQuantik $plateau, PieceQuantik $piece):string{
+        $retour = "<form class='form-plateau'>\n";
+        $retour = "\t<table style='border: 2px solid #000'>\n";
+
+        $head = "<thead><th></th>";
+        for($i = 0; $i<PlateauQuantik::NBCOLS; $i++){
+            $head.="<th>$i</th>";
+        }
+        $head .= "</thead>";
+        $retour.=$head;
+
+        $action = new ActionQuantik($plateau);
+
+        for($i = 0; $i<PlateauQuantik::NBROWS; $i++){
+            $retour .= "\t\t<tr><th>$i</th>\n";
+
+            for($j = 0; $j<PlateauQuantik::NBCOLS; $j++){
+                if($action->isValidatePose($i, $j, $piece)){
+                    $retour .= "\t\t\t<td style='border: 2px solid #000; width: 75px; height:75px'>
+                                    <button class='form-plateau-btn-enabled' type='submit' name='active' >".$plateau->getPiece($i,$j)."</button></td>\n";
+                }else{
+                    $retour .= "\t\t\t<td style='border: 2px solid #000; width: 75px; height:75px'>
+                                    <button class='form-plateau-btn-disabled' type='submit' name='active' disabled>".$plateau->getPiece($i,$j)."</button></td>\n";
+                }
+            }
+            $retour .= "\t\t</tr>\n";
+        }
+        return $retour;
+    }
 }
