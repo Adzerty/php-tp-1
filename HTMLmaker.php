@@ -39,6 +39,7 @@ class HTMLmaker
     }
 
     public function getFormSelectionPiece(ArrayPieceQuantik $arrayPieceQuantik):string{
+
         $retour = "<form method=\"GET\" action=\"pagePosePieceBlanche.php\">\n";
 
         for($i = 0; $i<$arrayPieceQuantik->getTaille(); $i++){
@@ -46,6 +47,7 @@ class HTMLmaker
         }
 
         $retour .= "</form>\n";
+
 
         return $retour;
     }
@@ -60,7 +62,7 @@ class HTMLmaker
 
     public function getFormPlateauQuantik(PlateauQuantik $plateau, PieceQuantik $piece):string{
         $retour = "<form class='form-plateau'>\n";
-        $retour = "\t<table style='border: 2px solid #000'>\n";
+        $retour .= "\t<table style='border: 2px solid #000'>\n";
 
         $head = "<thead><th></th>";
         for($i = 0; $i<PlateauQuantik::NBCOLS; $i++){
@@ -85,6 +87,8 @@ class HTMLmaker
             }
             $retour .= "\t\t</tr>\n";
         }
+        $retour .= "</table>";
+        $retour .= "</form>";
         return $retour;
     }
 }
