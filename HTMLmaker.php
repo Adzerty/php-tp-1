@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * @author : Colin PALLIER & Adrien PESTEL
+ * Classe permettant de créer un HTML
+ * https://github.com/Adzerty/php-tp-1
+ */
 class HTMLmaker
 {
     public function __construct(){
