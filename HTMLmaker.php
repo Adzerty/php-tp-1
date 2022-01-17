@@ -6,15 +6,14 @@
  */
 class HTMLmaker
 {
-    public function __construct(){
-
-    }
+    public function __construct(){}
 
     public function getDebutHTML():string{
         $retour = "<!DOCTYPE html>\n";
         $retour .= "<html lang=\"en\" dir=\"lt\">\n";
         $retour .= "\t<head>\n";
         $retour .= "\t\t<meta charset=\"utf-8\">";
+        $retour .= "\t\t<link rel='stylesheet' href='style/style.css'>";
         $retour .= "\t\t<title>Quantik</title>";
         $retour .= "\t</head>";
         $retour .= "\t<body>";

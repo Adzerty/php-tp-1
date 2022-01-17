@@ -1,0 +1,18 @@
+.pieceDispos{
+    width: 50%;
+    height: 25%;
+    margin: 20px;
+}
+
+button{
+    width: 75px;
+    height: 75px;
+}
+
+.form-plateau-btn-enabled{
+    background: rgba(0, 128, 0, 0.75);
+}
+
+.form-plateau-btn-disabled{
+    background: rgba(255, 0, 0, 0.5);
+}

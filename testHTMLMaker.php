@@ -12,6 +12,8 @@ echo $html->getDebutHTML();
 $set_blanc = ArrayPieceQuantik::initPiecesBlanches();
 echo $html->getDivPiecesDisponibles($set_blanc);
 
+$set_noir = ArrayPieceQuantik::initPiecesNoires();
+echo $html->getDivPiecesDisponibles($set_noir);
 
 echo $html->getFormSelectionPiece($set_blanc);
 
