@@ -11,9 +11,10 @@ $set_noir = ArrayPieceQuantik::initPiecesNoires();
 $plateau = new PlateauQuantik();
 
 echo $html->getDebutHTML();
-echo $html->getFormSelectionPiece($set_blanc);
 
-echo $html->getDivPlateauQuantik($plateau);
+echo $html->getDivPiecesDisponibles($set_blanc);
+
+echo $html->getFormPlateauQuantik($plateau, $set_blanc->getPieceQuantik($_GET['joue']));
 
 echo $html->getDivPiecesDisponibles($set_noir);
 

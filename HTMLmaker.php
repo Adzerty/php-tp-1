@@ -39,10 +39,10 @@ class HTMLmaker
     }
 
     public function getFormSelectionPiece(ArrayPieceQuantik $arrayPieceQuantik):string{
-        $retour = "<form method=\"GET\">\n";
+        $retour = "<form method=\"GET\" action=\"pagePosePieceBlanche.php\">\n";
 
         for($i = 0; $i<$arrayPieceQuantik->getTaille(); $i++){
-            $retour.="\t<input type='submit' name=\"joue\" id=\"".$i."\" value=\"".$arrayPieceQuantik->getPieceQuantik($i)."\">\n";
+            $retour.="\t<input type='submit' name=\"joue\" id=\"".$i."\" value=\"".$i."\">\n";
         }
 
         $retour .= "</form>\n";
