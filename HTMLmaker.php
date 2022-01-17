@@ -13,7 +13,7 @@ class HTMLmaker
         $retour .= "<html lang=\"en\" dir=\"lt\">\n";
         $retour .= "\t<head>\n";
         $retour .= "\t\t<meta charset=\"utf-8\">";
-        $retour .= "\t\t<link rel='stylesheet' href='style/style.css'>";
+        $retour .= "\t\t<link rel='stylesheet' href='../style/style.css'>";
         $retour .= "\t\t<title>Quantik</title>";
         $retour .= "\t</head>";
         $retour .= "\t<body>";
@@ -31,7 +31,7 @@ class HTMLmaker
     public function getDivPiecesDisponibles(ArrayPieceQuantik $array):string{
         $retour = "<div class='pieceDispos'>\n";
         for($i = 0; $i<$array->getTaille(); $i++){
-            $retour.="\t<button type='submit' name='active' disabled > <img src='./img/".$array->getPieceQuantik($i)->getCouleur()."_".$array->getPieceQuantik($i)->getForme().".png'>"."</button>\n";
+            $retour.="\t<button type='submit' name='active' disabled > <img src='../img/".$array->getPieceQuantik($i)->getCouleur()."_".$array->getPieceQuantik($i)->getForme().".png'>"."</button>\n";
         }
         $retour .= "</div>\n";
 
@@ -43,7 +43,7 @@ class HTMLmaker
         $retour = "<form method=\"GET\" action=\"pagePosePieceBlanche.php\">\n";
 
         for($i = 0; $i<$arrayPieceQuantik->getTaille(); $i++){
-            $retour.="\t<button type='submit' name='joue' value='".$i."'> <img src='./img/".$arrayPieceQuantik->getPieceQuantik($i)->getCouleur()."_".$arrayPieceQuantik->getPieceQuantik($i)->getForme().".png'>"."</button>\n";
+            $retour.="\t<button type='submit' name='joue' value='".$i."'> <img src='../img/".$arrayPieceQuantik->getPieceQuantik($i)->getCouleur()."_".$arrayPieceQuantik->getPieceQuantik($i)->getForme().".png'>"."</button>\n";
         }
 
         $retour .= "</form>\n";
