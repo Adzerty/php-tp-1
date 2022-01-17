@@ -7,8 +7,13 @@ class HTMLmaker
     }
 
     public function getDebutHTML():string{
-        $retour = "<html>";
-        $retour .= "\t";
+        $retour = "<!DOCTYPE html>\n";
+        $retour .= "<html lang=\"en\" dir=\"lt\">\n";
+        $retour .= "\t<head>\n";
+        $retour .= "\t\t<meta charset=\"utf-8\">";
+        $retour .= "\t\t<title>Quantik</title>";
+        $retour .= "\t</head>";
+        $retour .= "\t<body>";
 
       return $retour;
     }
