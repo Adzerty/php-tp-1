@@ -46,14 +46,14 @@ class PieceQuantik{
      */
     public function __toString(): string{
         $formePiece = "";
-        if($this->forme == 0)return "Piece <b>vide</b>";
+        if($this->forme == 0)return "Vide";
         switch($this->forme){
-            case 1: $formePiece = "cubique"; break;
-            case 2: $formePiece = "conique"; break;
-            case 3: $formePiece = "cylindrique"; break;
-            case 4: $formePiece = "sphérique"; break;
+            case 1: $formePiece = "Cu"; break;
+            case 2: $formePiece = "Co"; break;
+            case 3: $formePiece = "Cy"; break;
+            case 4: $formePiece = "Sp"; break;
         }
-        return "Piece <b>" . ($this->couleur==0 ? "blanche" : "noire") . "</b> de forme <b>$formePiece </b>";
+        return "(" . $formePiece . ":" . ($this->couleur==0 ? "W" : "B") . ")";
     }
 
     /**
