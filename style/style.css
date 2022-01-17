@@ -1,12 +1,11 @@
 .pieceDispos{
-    width: 50%;
-    height: 25%;
+
     margin: 20px;
 }
 
 button{
-    width: 75px;
-    height: 75px;
+    width: 100px;
+    height: 100px;
 }
 
 .form-plateau-btn-enabled{

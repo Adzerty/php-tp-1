@@ -31,7 +31,7 @@ class HTMLmaker
     public function getDivPiecesDisponibles(ArrayPieceQuantik $array):string{
         $retour = "<div class='pieceDispos'>\n";
         for($i = 0; $i<$array->getTaille(); $i++){
-            $retour.="\t<button type='submit' name='active' disabled >".$array->getPieceQuantik($i)."</button>\n";
+            $retour.="\t<button type='submit' name='active' disabled > <img src='./img/".$array->getPieceQuantik($i)->getCouleur()."_".$array->getPieceQuantik($i)->getForme().".png'>"."</button>\n";
         }
         $retour .= "</div>\n";
 
