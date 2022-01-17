@@ -33,7 +33,7 @@ class HTMLmaker
         for($i = 0; $i<$array->getTaille(); $i++){
             $retour.="\t<button type='submit' name='active' disabled >".$array->getPieceQuantik($i)."</button>\n";
         }
-        $retour = "</div>";
+        $retour .= "</div>";
 
         return $retour;
     }
