@@ -75,3 +75,4 @@ echo "suppression du premier element d'une array de piece quantik";
 $set_noir->removePieceQuantik(0);
 
 echo $set_noir."\n";
+

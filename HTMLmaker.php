@@ -18,4 +18,14 @@ class HTMLmaker
         $retour .= "</html>";
         return $retour;
     }
+
+    public function getDivPiecesDisponibles(ArrayPieceQuantik $array):string{
+        $retour = "<div>";
+        for($i = 0; $i<$array->getTaille(); $i++){
+            $retour.="\t<button type='submit' name='active' disabled >".$array->getPieceQuantik($i)."</button>\n";
+        }
+        $retour = "</div>";
+
+        return $retour;
+    }
 }
