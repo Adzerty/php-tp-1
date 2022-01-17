@@ -46,7 +46,7 @@ class PieceQuantik{
      */
     public function __toString(): string{
         $formePiece = "";
-        if($this->forme == 0)return "( )";
+        if($this->forme == 0)return "";
         switch($this->forme){
             case 1: $formePiece = "Cu"; break;
             case 2: $formePiece = "Co"; break;
