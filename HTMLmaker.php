@@ -29,7 +29,13 @@ class HTMLmaker
 
 
     public function getDivPiecesDisponibles(ArrayPieceQuantik $array):string{
-        $retour = "<div class='pieceDispos'>\n";
+
+        if ($array->getPieceQuantik(0)->getCouleur() == 0){
+            $retour = "<div class='pieceDispos' id=\"piecesBlanche\">\n";
+        }else{
+            $retour = "<div class='pieceDispos' id=\"piecesNoir\">\n";
+        }
+
         for($i = 0; $i<$array->getTaille(); $i++){
             $retour.="\t<button type='submit' name='active' disabled > <img src='../img/".$array->getPieceQuantik($i)->getCouleur()."_".$array->getPieceQuantik($i)->getForme().".png'>"."</button>\n";
         }
@@ -39,7 +45,13 @@ class HTMLmaker
     }
 
     public function getFormSelectionPiece(ArrayPieceQuantik $arrayPieceQuantik):string{
-        $retour = "<div class=\"pieceDispos\">";
+
+        if ($arrayPieceQuantik->getPieceQuantik(0)->getCouleur() == 0){
+            $retour = "<div class='pieceDispos' id=\"piecesBlanche\">\n";
+        }else{
+            $retour = "<div class='pieceDispos' id=\"piecesNoir\">\n";
+        }
+
         $retour .= "<form method=\"GET\" action=\"pagePosePieceBlanche.php\">\n";
 
         for($i = 0; $i<$arrayPieceQuantik->getTaille(); $i++){
