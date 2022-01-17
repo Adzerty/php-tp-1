@@ -30,11 +30,11 @@ class HTMLmaker
 
 
     public function getDivPiecesDisponibles(ArrayPieceQuantik $array):string{
-        $retour = "<div>";
+        $retour = "<div class='pieceDispos'>\n";
         for($i = 0; $i<$array->getTaille(); $i++){
             $retour.="\t<button type='submit' name='active' disabled >".$array->getPieceQuantik($i)."</button>\n";
         }
-        $retour .= "</div>";
+        $retour .= "</div>\n";
 
         return $retour;
     }
@@ -49,6 +49,14 @@ class HTMLmaker
 
         $retour .= "\t</select>";
         $retour .= "<form>";
+
+        return $retour;
+    }
+
+    public function getDivPlateauQuantik(PlateauQuantik $plateau):string{
+        $retour = "<div class='plateau'>\n";
+        $retour .= "\t".$plateau."\n";
+        $retour .= "</div>\n";
 
         return $retour;
     }
