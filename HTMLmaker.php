@@ -42,7 +42,7 @@ class HTMLmaker
         $retour = "<form method=\"GET\" action=\"pagePosePieceBlanche.php\">\n";
 
         for($i = 0; $i<$arrayPieceQuantik->getTaille(); $i++){
-            $retour.="\t<input type='submit' name=\"joue\" id=\"".$i."\" value=\"".$i."\">\n";
+            $retour.="\t<button type='submit' name='joue' value='".$i."'> <img src='./img/".$arrayPieceQuantik->getPieceQuantik($i)->getCouleur()."_".$arrayPieceQuantik->getPieceQuantik($i)->getForme().".png'>"."</button>\n";
         }
 
         $retour .= "</form>\n";
