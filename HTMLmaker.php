@@ -32,12 +32,11 @@ class HTMLmaker
     public function getDivPiecesDisponibles(ArrayPieceQuantik $array):string{
 
         if ($array->getPieceQuantik(0)->getCouleur() == 0){
-
             $retour = "<div class='pieceDispos' id=\"piecesBlanche\">\n";
-            $retour .= "<h3>Pieces Blanche</h3>";
+            $retour .= "<h3>Pieces Blanches</h3>";
         }else{
             $retour = "<div class='pieceDispos' id=\"piecesNoir\">\n";
-            $retour .= "<h3>Pieces Noir</h3>";
+            $retour .= "<h3>Pieces Noires</h3>";
         }
 
         for($i = 0; $i<$array->getTaille(); $i++){
@@ -52,11 +51,11 @@ class HTMLmaker
 
         if ($arrayPieceQuantik->getPieceQuantik(0)->getCouleur() == 0){
             $retour = "<div class='pieceDispos' id=\"piecesBlanche\">\n";
-            $retour .= "<h3>Pieces Blanche</h3>";
+            $retour .= "<h3>Pieces Blanches</h3>";
             $retour .= "<form method=\"GET\" action=\"pagePosePieceBlanche.php\">\n";
         }else{
             $retour = "<div class='pieceDispos' id=\"piecesNoir\">\n";
-            $retour .= "<h3>Pieces Noir</h3>";
+            $retour .= "<h3>Pieces Noires</h3>";
             $retour .= "<form method=\"GET\" action=\"pagePosePieceNoire.php\">\n";
         }
 
