@@ -32,6 +32,14 @@ button{
     background: rgba(255, 0, 0, 0.5);
 }
 
+.form-plateau-btn-enabled img{
+    opacity: 0.5;
+}
+
+.form-plateau-btn-disabled img{
+    opacity: 0.5;
+}
+
 .containerPieces{
     margin-bottom: 50px;
     margin-left:8%;

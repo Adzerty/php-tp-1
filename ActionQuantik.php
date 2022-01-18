@@ -99,10 +99,10 @@ class ActionQuantik
      */
     private static function isComboWin(ArrayPieceQuantik $pieces):bool
     {
-        return (2^$pieces->getPieceQuantik(0)->getForme() +
-            2^$pieces->getPieceQuantik(1)->getForme() +
-            2^$pieces->getPieceQuantik(2)->getForme() +
-            2^$pieces->getPieceQuantik(3)->getForme() ==
+        return ( (2**$pieces->getPieceQuantik(0)->getForme() +
+            2**$pieces->getPieceQuantik(1)->getForme() +
+            2**$pieces->getPieceQuantik(2)->getForme() +
+            2**$pieces->getPieceQuantik(3)->getForme()) ==
             2  +  4  +  8  + 16); // 2^1 + 2^2 + 2^3 + 2^4
     }
 
@@ -127,6 +127,4 @@ class ActionQuantik
         }
         return $boolTmp;
     }
-
-
 }

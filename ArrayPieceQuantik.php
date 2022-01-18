@@ -33,11 +33,14 @@ class ArrayPieceQuantik{
 
     /**
      * @param int $pos
-     * @return PieceQuantik
+     * @return PieceQuantik|null
      */
-    public function getPieceQuantik(int $pos): PieceQuantik
+    public function getPieceQuantik(int $pos): ?PieceQuantik
     {
-        return $this->piecesQuantik[$pos];
+        if(isset($this->piecesQuantik[$pos]))
+            return $this->piecesQuantik[$pos];
+        else
+            return PieceQuantik::initVoid();
     }
 
     /**

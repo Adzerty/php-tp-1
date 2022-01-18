@@ -147,7 +147,7 @@ class PlateauQuantik
         for ($i=0;$i<self::NBROWS;$i++){
             $retour.="<tr><th>$i</th>";
             for ($j=0;$j<self::NBCOLS;$j++){
-                $retour .= "\n\t\t<td style='border: 2px solid #000; width: 100px; height:100px'>".$this->cases[$i]->getPieceQuantik($j)."</td>";
+                $retour .= "\n\t\t<td style='border: 2px solid #000; width: 100px; height:100px'>"."<img src='../img/".$this->cases[$i]->getPieceQuantik($j)->getCouleur()."_".$this->cases[$i]->getPieceQuantik($j)->getForme().".png'>"."</td>";
             }
             $retour.="\n\t</tr>\n\t";
         }

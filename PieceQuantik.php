@@ -53,7 +53,7 @@ class PieceQuantik{
             case 3: $formePiece = "Cy"; break;
             case 4: $formePiece = "Sp"; break;
         }
-        return "(" . $formePiece . ":" . ($this->couleur==0 ? "W" : "B") . ")";
+        return "(" . $formePiece . ":" . ($this->couleur==0 ? "W" : "B") . ")".$this->getForme();
     }
 
     /**

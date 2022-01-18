@@ -4,11 +4,12 @@
  * Classe permettant de créer un HTML
  * https://github.com/Adzerty/php-tp-1
  */
+
 class HTMLmaker
 {
     public function __construct(){}
 
-    public function getDebutHTML():string{
+    public static function getDebutHTML():string{
         $retour = "<!DOCTYPE html>\n";
         $retour .= "<html lang=\"fr\" dir=\"lt\">\n";
         $retour .= "\t<head>\n";
@@ -22,16 +23,21 @@ class HTMLmaker
       return $retour;
     }
 
-    public function getFinHTML():string{
+    public static function getFinHTML():string{
         $retour = "\t</body>\n";
         $retour .= "</html>";
         return $retour;
     }
 
 
-    public function getDivPiecesDisponibles(ArrayPieceQuantik $array):string{
+    public static function getDivPiecesDisponibles(ArrayPieceQuantik $array):string{
 
-        if ($array->getPieceQuantik(0)->getCouleur() == 0){
+        $indiceFirstRealPiece = 0;
+        while($indiceFirstRealPiece<$array->getTaille() && $array->getPieceQuantik($indiceFirstRealPiece)->getForme() == 0)
+            $indiceFirstRealPiece++;
+
+
+        if ($array->getPieceQuantik($indiceFirstRealPiece)->getCouleur() == 0){
             $retour = "<div class='pieceDispos' id=\"piecesBlanche\">\n";
             $retour .= "<h3>Pieces Blanches</h3>";
         }else{
@@ -47,21 +53,25 @@ class HTMLmaker
         return $retour;
     }
 
-    public function getFormSelectionPiece(ArrayPieceQuantik $arrayPieceQuantik):string{
+    public static function getFormSelectionPiece(ArrayPieceQuantik $arrayPieceQuantik):string{
 
-        if ($arrayPieceQuantik->getPieceQuantik(0)->getCouleur() == 0){
+        $indiceFirstRealPiece = 0;
+        while($indiceFirstRealPiece<$arrayPieceQuantik->getTaille() && $arrayPieceQuantik->getPieceQuantik($indiceFirstRealPiece)->getForme()==0)
+            $indiceFirstRealPiece++;
+
+        if ($arrayPieceQuantik->getPieceQuantik($indiceFirstRealPiece)->getCouleur() == 0){
             $retour = "<div class='pieceDispos' id=\"piecesBlanche\">\n";
             $retour .= "<h3>Pieces Blanches</h3>";
-            $retour .= "<form method=\"GET\" action=\"pagePosePieceBlanche.php\">\n";
         }else{
             $retour = "<div class='pieceDispos' id=\"piecesNoir\">\n";
             $retour .= "<h3>Pieces Noires</h3>";
-            $retour .= "<form method=\"GET\" action=\"pagePosePieceNoire.php\">\n";
         }
+        $retour .= "<form method=\"GET\" action=\"quantik.php\">\n";
+        $retour .= "<input type='hidden' name='action' value='choisirPiece'>\n";
 
 
         for($i = 0; $i<$arrayPieceQuantik->getTaille(); $i++){
-            $retour.="\t<button type='submit' name='Piece' value='".$i."'> <img src='../img/".$arrayPieceQuantik->getPieceQuantik($i)->getCouleur()."_".$arrayPieceQuantik->getPieceQuantik($i)->getForme().".png'>"."</button>\n";
+            $retour.="\t<button type='submit' name='piece' value='".$i."'".($arrayPieceQuantik->getPieceQuantik($i)->getForme() == 0 ? "disabled":"")."> <img src='../img/".$arrayPieceQuantik->getPieceQuantik($i)->getCouleur()."_".$arrayPieceQuantik->getPieceQuantik($i)->getForme().".png'>"."</button>\n";
         }
 
         $retour .= "</form>\n";
@@ -71,7 +81,7 @@ class HTMLmaker
         return $retour;
     }
 
-    public function getDivPlateauQuantik(PlateauQuantik $plateau):string{
+    public static function getDivPlateauQuantik(PlateauQuantik $plateau):string{
         $retour = "<div class='plateau'>\n";
         $retour .= "\t".$plateau."\n";
         $retour .= "</div>\n";
@@ -79,14 +89,20 @@ class HTMLmaker
         return $retour;
     }
 
-    public function getFormPlateauQuantik(PlateauQuantik $plateau, PieceQuantik $piece):string{
+    public static function getFormPlateauQuantik(PlateauQuantik $plateau, PieceQuantik $piece):string{
         $retour  = "<div class=\"plateau\">";
 
+        $retour .= "<form class='form-plateau' action='quantik.php'>\n";
+        $retour .= "<input type='hidden' name='action' value='poserPiece'>\n";
+        $retour .= "<input type='hidden' name='piece' value='".$_GET['piece']."'>\n";
+
+        /*
         if ($piece->getCouleur() == 0){
             $retour .= "<form class='form-plateau' action=\"pagePieceNoire.php\">\n"; // doit envoyer vers un choix de piece noire
         }else{
             $retour .= "<form class='form-plateau' action=\"pagePieceBlanche.php\">\n"; //doit envoyer vers un choix de piece blanche
         }
+        */
 
 
         $retour .= "\t<table style='border: 2px solid #000'>\n";
@@ -106,10 +122,10 @@ class HTMLmaker
             for($j = 0; $j<PlateauQuantik::NBCOLS; $j++){
                 if($action->isValidatePose($i, $j, $piece)){
                     $retour .= "\t\t\t<td style='border: 2px solid #000; width: 75px; height:75px'>
-                                    <button class='form-plateau-btn-enabled' type='submit' name='active' >".$plateau->getPiece($i,$j)."</button></td>\n";
+                            <button class='form-plateau-btn-enabled' type='submit' name='coord' value='$i-$j' >"."<img src='../img/".$plateau->getPiece($i,$j) ->getCouleur()."_".$plateau->getPiece($i,$j) ->getForme().".png'>"."</button></td>\n";
                 }else{
                     $retour .= "\t\t\t<td style='border: 2px solid #000; width: 75px; height:75px'>
-                                    <button class='form-plateau-btn-disabled' type='submit' name='active' disabled>".$plateau->getPiece($i,$j)."</button></td>\n";
+                            <button class='form-plateau-btn-disabled' disabled>"."<img src='../img/".$plateau->getPiece($i,$j) ->getCouleur()."_".$plateau->getPiece($i,$j) ->getForme().".png'>"."</button></td>\n";
                 }
             }
             $retour .= "\t\t</tr>\n";
