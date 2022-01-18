@@ -1,10 +1,37 @@
 
+.logo{
+    max-width: 100%;
+}
+
+.logo img{
+    width: 50%;
+    margin: 20px;
+}
+
 body{
     font-family: "Arial";
     text-align: center;
-    background-color: #758eb7;
+
+
+    background: linear-gradient(111.34deg, #A63CE8 , #3E3AFB, #EE0F0F);
+    background-size: 400% 400%;
+    animation: gradient 30s ease-in-out infinite;
+    height: 100vh;
 
 }
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 .containerPieces{
     margin-bottom: 50px;
     margin-left:8%;

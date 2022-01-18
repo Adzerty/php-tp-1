@@ -18,7 +18,7 @@ class HTMLmaker
         $retour .= "\t\t<title>Quantik</title>";
         $retour .= "\t</head>";
         $retour .= "\t<body>";
-        $retour .= "<h1>Quantik</h1>";
+        $retour .= "<div class='logo'><img src='../img/logo.png' alt='Quantik'></div>";
 
       return $retour;
     }
