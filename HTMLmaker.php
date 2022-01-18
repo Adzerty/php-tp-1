@@ -105,7 +105,7 @@ class HTMLmaker
         */
 
 
-        $retour .= "\t<table style='border: 2px solid #000'>\n";
+        $retour .= "\t<table>\n";
 
         $head = "<thead><th></th>";
         for($i = 0; $i<PlateauQuantik::NBCOLS; $i++){

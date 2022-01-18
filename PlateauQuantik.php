@@ -135,7 +135,7 @@ class PlateauQuantik
      */
     public function __toString():string
     {
-        $retour = "<table style='border: 2px solid #000'>\n\t";
+        $retour = "<table>\n\t";
         $head = "<thead><th></th>";
         for($i = 0; $i<self::NBCOLS; $i++){
             $head.="<th>$i</th>";
@@ -147,7 +147,7 @@ class PlateauQuantik
         for ($i=0;$i<self::NBROWS;$i++){
             $retour.="<tr><th>$i</th>";
             for ($j=0;$j<self::NBCOLS;$j++){
-                $retour .= "\n\t\t<td style='border: 2px solid #000; width: 100px; height:100px'>"."<img src='../img/".$this->cases[$i]->getPieceQuantik($j)->getCouleur()."_".$this->cases[$i]->getPieceQuantik($j)->getForme().".png'>"."</td>";
+                $retour .= "\n\t\t<td>"."<img src='../img/".$this->cases[$i]->getPieceQuantik($j)->getCouleur()."_".$this->cases[$i]->getPieceQuantik($j)->getForme().".png'>"."</td>";
             }
             $retour.="\n\t</tr>\n\t";
         }

@@ -1,19 +1,33 @@
 
 body{
-    font-family: "Microsoft Sans Serif";
+    font-family: "Arial";
     text-align: center;
+    background-color: #758eb7;
 
+}
+.containerPieces{
+    margin-bottom: 50px;
+    margin-left:8%;
+    border: 2px solid black;
+    width: 460px;
+    height: fit-content;
+    float: left;
+
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.containerPieces h3{
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 1.5em;
 }
 .pieceDispos{
     margin: 20px;
-}
-
-.pieceDispos button:disabled{
-    background-color: #868686;
-}
-
-.pieceDispos button:disabled img{
-    opacity: 0.5;
 }
 
 button{
@@ -23,14 +37,45 @@ button{
     border-collapse: collapse;
 }
 
+.pieceDispos button:enabled{
+    background-color: rgba( 255, 255, 255, 0 );
+    opacity: 80%;
+}
+
+.pieceDispos button:enabled:hover{
+    background-color: rgba( 255, 255, 255, 0 );
+    opacity: 100%;
+}
+
+.pieceDispos button:enabled:active{
+    background-color: rgba( 255, 255, 255, 0 );
+    opacity: 50%;
+}
+
+.pieceDispos button:disabled{
+    background-color: rgba( 255, 255, 255, 0 );
+    opacity: 15%;
+}
 
 .form-plateau-btn-enabled{
     background: rgba(0, 128, 0, 0.75);
+    opacity: 70%;
+}
+
+.form-plateau-btn-enabled:hover{
+    background: rgba(0, 128, 0, 0.75);
+    opacity: 100%;
+}
+
+.form-plateau-btn-enabled:active{
+    background: rgba(0, 128, 0, 0.75);
+    opacity: 20%;
 }
 
 .form-plateau-btn-disabled{
-    background: rgba(255, 0, 0, 0.5);
+    background: rgba(255, 0, 0, 0.55);
 }
+
 
 .form-plateau-btn-enabled img{
     opacity: 0.5;
@@ -40,14 +85,6 @@ button{
     opacity: 0.5;
 }
 
-.containerPieces{
-    margin-bottom: 50px;
-    margin-left:8%;
-    border: 2px solid black;
-    width: 460px;
-    height: fit-content;
-    float: left;
-}
 
 .plateau{
     margin-top: 50px;
@@ -55,6 +92,14 @@ button{
     width: fit-content;
     float: right;
     position: sticky;
+    padding: 2%;
+
+    background: rgba( 255, 255, 255, 0.4 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 10px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 
 }
 h1{
@@ -67,7 +112,9 @@ h3{
 
 table{
     border-collapse: collapse;
+    border-radius: 10px;
 }
 td{
     padding: 0px;
+    border: 2px solid #000; width: 100px; height:100px
 }
