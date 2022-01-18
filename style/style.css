@@ -129,6 +129,53 @@ button{
     border: 1px solid rgba( 255, 255, 255, 0.18 );
 
 }
+
+.fin{
+    width: fit-content;
+    padding: 15px;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 100px;
+
+    position: sticky;
+
+    background: rgba( 255, 255, 255, 0.4 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 10px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.fin input{
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    font-size: 15px;
+    text-transform: uppercase;
+
+    background: rgba( 255, 255, 255, 0.4 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 10px );
+}
+
+.fin input:hover{
+    background: rgba( 255, 255, 255, 0.8 );
+}
+
+.fin input:active{
+    background: rgba( 255, 255, 255, 0.2 );
+}
+
+
+
+.fin p{
+    font-size: 30px;
+    text-transform: uppercase;
+}
 h1{
     font-size: 40px;
 }

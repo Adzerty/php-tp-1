@@ -145,6 +145,8 @@ function pagePosePieceNoire(){
 function pageFin(){
     echo HTMLmaker::getDebutHTML();
 
+    echo HTMLmaker::getDivFinPartie();
+
     echo "<div class=\"containerPieces\">";
     echo HTMLmaker::getDivPiecesDisponibles($_SESSION['set_blanc']);
     echo HTMLmaker::getDivPiecesDisponibles($_SESSION['set_noir']);
