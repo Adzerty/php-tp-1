@@ -24,6 +24,8 @@ if (empty($_SESSION)) { // initialisation des variables de session
     $_SESSION['etat'] = 'choixPiece';
     $_SESSION['couleurActive'] = PieceQuantik::WHITE;
     $_SESSION['message'] = "";
+    $_SESSION['coups'] = 0;
+    $_SESSION['leaderboard'] = array();
 }
 
 $pageHTML = "";
@@ -43,12 +45,15 @@ try {
 
                 $aq->posePiece(substr($_GET['coord'], 0, 1),substr($_GET['coord'], 2, 1), $set_actif->getPieceQuantik($_GET['piece']));
                 $set_actif->removePieceQuantik($_GET['piece']);
+                $_SESSION['coups']++;
 
                 if(checkWin($aq)) // Tester la victoire
                 {
+
                     $_SESSION['etat'] = 'victoire';
                 }
                 else {
+
                     $_SESSION['couleurActive'] = ($_SESSION['couleurActive'] + 1) % 2;
                     $_SESSION['etat'] = 'choixPiece';
                 }

@@ -139,6 +139,7 @@ class HTMLmaker
     public static function getDivFinPartie():string{
         $retour  = "<form class='fin'>\n";
         $retour  .= "\t<p> Bravo joueur <b>".($_SESSION['couleurActive'] == PieceQuantik::WHITE ? "blanc ":"noir ")."</b></p>\n";
+        $retour  .= "\t<p> Tu as gagné en : <b>".$_SESSION['coups']." coups</b></p>\n";
         $retour .= "<input type='submit' name='reset' value='Recommencer'></form>\n";
         return $retour;
     }
