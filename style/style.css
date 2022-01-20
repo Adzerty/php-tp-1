@@ -192,3 +192,37 @@ td{
     padding: 0px;
     border: 2px solid #000; width: 100px; height:100px
 }
+
+.panelDebut{
+
+    background: rgba( 255, 255, 255, 0.4 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 10px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+    float: left;
+    position: absolute;
+    margin-left: 50%;
+    padding: 15px;
+    transform: translate(-50%);
+    text-align: center;
+}
+
+.panelDebut .button{
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    font-size: 15px;
+    text-transform: uppercase;
+
+    background: rgba( 255, 255, 255, 0.4 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 10px );
+}
+
+form p{
+    text-align: center;
+}
