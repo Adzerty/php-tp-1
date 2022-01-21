@@ -3,6 +3,18 @@
     max-width: 100%;
 }
 
+.smallLogo{
+    max-width: 30%;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+
+.smallLogo img{
+    width: 50%;
+    margin: 20px;
+    margin-left: 0px;
+}
+
 .logo img{
     width: 50%;
     margin: 20px;

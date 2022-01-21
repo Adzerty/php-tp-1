@@ -19,7 +19,9 @@ class HTMLmaker
         $retour .= "\t\t<title>Quantik</title>\n";
         $retour .= "\t</head>\n";
         $retour .= "\t<body>\n";
-        $retour .= "<div class='logo'><img src='../img/logo.png' alt='Quantik'></div>\n";
+
+        $classLogo = isset($_SESSION['couleurActive']) ? "smallLogo" : "logo";
+        $retour .= "<div class='$classLogo'><img src='../img/logo.png' alt='Quantik'></div>\n";
 
       return $retour;
     }
