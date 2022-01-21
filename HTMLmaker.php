@@ -29,6 +29,25 @@ class HTMLmaker
         return $retour;
     }
 
+    public static function getPageDebut():string{
+        $retour = "<div class='panelDebut'>";
+        $retour .= "<h2>Parametre de jeu</h2>";
+        $retour .= "<h3>Quel joueur commence ?</h3>";
+        $retour .= "<form method='GET' action='quantik.php'>";
+        $retour .= "<input type='hidden' name='action' value='choisirJoueur'>\n";
+        $retour .= "<p><input type='radio'  name='joueur' value='blanc' checked>";
+        $retour .= "<label>Blanc</label></p>";
+        $retour .= "<p><input type='radio'  name='joueur' value='noir'>";
+        $retour .= "<label>Noir</label></p>";
+        $retour .= "<p><input type='radio'  name='joueur' value='alea'>";
+        $retour .= "<label>Aleatoire</label></p>";
+        $retour .= "<input type='submit' class='button' value='Jouer'>";
+        $retour .= "</from>";
+        $retour .= "</div>";
+
+        return $retour;
+    }
+
 
     public static function getDivPiecesDisponibles(ArrayPieceQuantik $array):string{
 
@@ -137,10 +156,10 @@ class HTMLmaker
     }
 
     public static function getDivFinPartie():string{
-        $retour  = "<form class='fin'>\n";
+        $retour  = "<form class='fin' >\n";
         $retour  .= "\t<p> Bravo joueur <b>".($_SESSION['couleurActive'] == PieceQuantik::WHITE ? "blanc ":"noir ")."</b></p>\n";
         $retour  .= "\t<p> Tu as gagné en : <b>".$_SESSION['coups']." coups</b></p>\n";
-        $retour .= "<input type='submit' name='reset' value='Recommencer'></form>\n";
+        $retour .= "<input type='submit' name='reset' value='recommencer' ></form>\n";
         return $retour;
     }
 }

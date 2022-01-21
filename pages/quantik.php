@@ -13,19 +13,19 @@ require_once("../HTMLmaker.php");
 
 session_start();
 
-if (isset($_GET['reset'])) { //pratique pour réinitialiser une partie à la main
+if (isset($_GET['reset'])){
     session_unset();
 }
+
 
 if (empty($_SESSION)) { // initialisation des variables de session
     $_SESSION['set_blanc'] = ArrayPieceQuantik::initPiecesBlanches();
     $_SESSION['set_noir'] = ArrayPieceQuantik::initPiecesNoires();
     $_SESSION['plateau'] = new PlateauQuantik();
-    $_SESSION['etat'] = 'choixPiece';
-    $_SESSION['couleurActive'] = PieceQuantik::WHITE;
+    $_SESSION['etat'] = 'choixJoueur';
+
     $_SESSION['message'] = "";
     $_SESSION['coups'] = 0;
-    $_SESSION['leaderboard'] = array();
 }
 
 $pageHTML = "";
@@ -36,6 +36,21 @@ $aq = new ActionQuantik($_SESSION['plateau']);
 try {
     if (isset($_GET['action'])) {
         switch ($_GET['action']) {
+            case 'choisirJoueur':
+                $_SESSION['etat'] = 'choixPiece';
+
+                if($_GET['joueur']=="blanc"){
+                    $_SESSION['couleurActive'] = PieceQuantik::WHITE;
+                }elseif ($_GET['joueur']=="noir"){
+                    $_SESSION['couleurActive'] = PieceQuantik::BLACK;
+                }else{
+                    if (rand(0,1)==1){
+                        $_SESSION['couleurActive'] = PieceQuantik::WHITE;
+                    }else{
+                        $_SESSION['couleurActive'] = PieceQuantik::BLACK;
+                    }
+                }
+                break;
             case 'choisirPiece':
                 $_SESSION['etat'] = 'posePiece';
                 break;
@@ -77,6 +92,9 @@ switch($_SESSION['etat']) {
         break;
     case 'posePiece':
         $_SESSION['couleurActive'] == PieceQuantik::WHITE ? pagePosePieceBlanche() : pagePosePieceNoire();
+        break;
+    case 'choixJoueur':
+        pageDebut();
         break;
     case 'victoire':
         pageFin();
@@ -161,6 +179,14 @@ function pageFin(){
 
 
     echo HTMLmaker::getFinHTML();
+}
+
+function pageDebut(){
+
+    echo HTMLmaker::getDebutHTML();
+    echo HTMLmaker::getPageDebut();
+    echo HTMLmaker::getFinHTML();
+
 }
 
 function checkWin(ActionQuantik $aq){
