@@ -34,8 +34,7 @@ class HTMLmaker
 
     public static function getPageDebut():string{
         $retour = "<div class='panelDebut'>";
-        $retour .= "<h2>Parametre de jeu</h2>";
-        $retour .= "<h3>Quel joueur commence ?</h3>";
+        $retour .= "<h2>Quel joueur commence ?</h2>";
         $retour .= "<form method='GET' action='quantik.php'>";
         $retour .= "<input type='hidden' name='action' value='choisirJoueur'>\n";
         $retour .= "<p><input type='radio'  name='joueur' value='blanc' checked>";
