@@ -75,7 +75,7 @@ try {
 
                 break;
             case 'annulerChoix':
-                /* TODO */
+                $_SESSION['etat'] = 'choixPiece';
                 break;
             default:
                 throw new \quantik\QuantikException("Action non valide");
@@ -142,6 +142,8 @@ function pagePosePieceBlanche(){
     echo HTMLmaker::getDivPiecesDisponibles($_SESSION['set_noir']);
     echo "</div>";
 
+    echo HTMLmaker::getDivPiecePrise($_SESSION['set_blanc']->getPieceQuantik($_GET['piece']));
+
     echo HTMLmaker::getFormPlateauQuantik($_SESSION['plateau'], $_SESSION['set_blanc']->getPieceQuantik($_GET['piece']));
 
 
@@ -156,6 +158,8 @@ function pagePosePieceNoire(){
     echo HTMLmaker::getDivPiecesDisponibles($_SESSION['set_blanc']);
     echo HTMLmaker::getDivPiecesDisponibles($_SESSION['set_noir']);
     echo "</div>";
+
+    echo HTMLmaker::getDivPiecePrise($_SESSION['set_noir']->getPieceQuantik($_GET['piece']));
 
     echo HTMLmaker::getFormPlateauQuantik($_SESSION['plateau'], $_SESSION['set_noir']->getPieceQuantik($_GET['piece']));
 

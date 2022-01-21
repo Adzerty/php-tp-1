@@ -48,6 +48,18 @@ class HTMLmaker
         return $retour;
     }
 
+    public static function getDivPiecePrise(PieceQuantik $piece):string{
+        $retour = "<div class='piecePrise' action='quantik.php'>\n";
+        $retour .= "<img src='../img/".$piece->getCouleur()."_".$piece->getForme().".png'/>";
+        $retour .= "<form action = 'quantik.php'>\n";
+        $retour .= "<input type='hidden' name='action' value='annulerChoix'>\n";
+        $retour .= "<input type='submit' value='Changer de piece'>\n";
+        $retour .= "</form>\n";
+        $retour .= "</div>\n";
+
+        return $retour;
+    }
+
 
     public static function getDivPiecesDisponibles(ArrayPieceQuantik $array):string{
 
