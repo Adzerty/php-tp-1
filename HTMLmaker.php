@@ -13,12 +13,13 @@ class HTMLmaker
         $retour = "<!DOCTYPE html>\n";
         $retour .= "<html lang=\"fr\" dir=\"lt\">\n";
         $retour .= "\t<head>\n";
-        $retour .= "\t\t<meta charset=\"utf-8\">";
-        $retour .= "\t\t<link rel=\"stylesheet\" href=\"../style/style.css\" />";
-        $retour .= "\t\t<title>Quantik</title>";
-        $retour .= "\t</head>";
-        $retour .= "\t<body>";
-        $retour .= "<div class='logo'><img src='../img/logo.png' alt='Quantik'></div>";
+        $retour .= "\t\t<meta charset=\"utf-8\">\n";
+        $retour .= "\t\t<link rel=\"stylesheet\" href=\"../style/style.css\" />\n";
+        $retour .= "\t\t<link rel='icon' type='image/png' sizes='16x16' href='../img/0_1.png'>\n";
+        $retour .= "\t\t<title>Quantik</title>\n";
+        $retour .= "\t</head>\n";
+        $retour .= "\t<body>\n";
+        $retour .= "<div class='logo'><img src='../img/logo.png' alt='Quantik'></div>\n";
 
       return $retour;
     }
