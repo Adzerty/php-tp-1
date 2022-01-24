@@ -37,8 +37,6 @@ try {
     if (isset($_GET['action'])) {
         switch ($_GET['action']) {
             case 'choisirJoueur':
-                $_SESSION['etat'] = 'choixPiece';
-
                 if($_GET['joueur']=="blanc"){
                     $_SESSION['couleurActive'] = PieceQuantik::WHITE;
                 }elseif ($_GET['joueur']=="noir"){
@@ -50,29 +48,30 @@ try {
                         $_SESSION['couleurActive'] = PieceQuantik::BLACK;
                     }
                 }
+                $_SESSION['etat'] = 'choixPiece';
                 break;
             case 'choisirPiece':
                 $_SESSION['etat'] = 'posePiece';
                 break;
             case 'poserPiece':
-                /* TODO : action pouvant conduire à 2 états selon le résultat : posePiece ou victoire */
-                ($_SESSION['couleurActive'] == PieceQuantik::WHITE ? $set_actif = &$_SESSION['set_blanc'] : $set_actif = &$_SESSION['set_noir']);
+                if($_SESSION['etat']!='choixPiece'){
+                    ($_SESSION['couleurActive'] == PieceQuantik::WHITE ? $set_actif = &$_SESSION['set_blanc'] : $set_actif = &$_SESSION['set_noir']);
 
-                $aq->posePiece(substr($_GET['coord'], 0, 1),substr($_GET['coord'], 2, 1), $set_actif->getPieceQuantik($_GET['piece']));
-                $set_actif->removePieceQuantik($_GET['piece']);
-                $_SESSION['coups']++;
+                    $aq->posePiece(substr($_GET['coord'], 0, 1),substr($_GET['coord'], 2, 1), $set_actif->getPieceQuantik($_GET['piece']));
+                    $set_actif->removePieceQuantik($_GET['piece']);
+                    $_SESSION['coups']++;
 
-                if(checkWin($aq)) // Tester la victoire
-                {
+                    if(checkWin($aq)) // Tester la victoire
+                    {
 
-                    $_SESSION['etat'] = 'victoire';
+                        $_SESSION['etat'] = 'victoire';
+                    }
+                    else {
+
+                        $_SESSION['couleurActive'] = ($_SESSION['couleurActive'] + 1) % 2;
+                        $_SESSION['etat'] = 'choixPiece';
+                    }
                 }
-                else {
-
-                    $_SESSION['couleurActive'] = ($_SESSION['couleurActive'] + 1) % 2;
-                    $_SESSION['etat'] = 'choixPiece';
-                }
-
                 break;
             case 'annulerChoix':
                 $_SESSION['etat'] = 'choixPiece';

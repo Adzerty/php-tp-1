@@ -267,6 +267,14 @@ td{
     -webkit-backdrop-filter: blur( 10px );
 }
 
+.panelDebut input:hover{
+    background: rgba( 255, 255, 255, 0.8 );
+}
+
+.panelDebut input:active{
+    background: rgba( 255, 255, 255, 0.2 );
+}
+
 .panelDebut h2{
     text-transform: uppercase;
     font-weight: bolder;
