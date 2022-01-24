@@ -130,6 +130,19 @@ class ActionQuantik
     }
 
     /**
+     * @return bool
+     */
+    function checkWin():bool{
+        $win = false;
+        $i = 0;
+        while( (! $win) && $i<PlateauQuantik::NBCOLS){
+            $win = $this->isColWin($i) || $this->isRowWin($i) || $this->isCornerWin($i);
+            $i++;
+        }
+        return $win;
+    }
+
+    /**
      * @param ArrayPieceQuantik $pieces
      * @param PieceQuantik $p
      * @return bool

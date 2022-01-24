@@ -62,9 +62,8 @@ try {
                     $set_actif->removePieceQuantik($_GET['piece']);
                     $_SESSION['coups']++;
 
-                    if(checkWin($aq)) // Tester la victoire
+                    if($aq->checkWin()) // Tester la victoire
                     {
-
                         $_SESSION['etat'] = 'victoire';
                     }
                     else {
@@ -213,14 +212,4 @@ function pageDebut(){
     echo HTMLmaker::getPageDebut();
     echo HTMLmaker::getFinHTML();
 
-}
-
-function checkWin(ActionQuantik $aq){
-    $win = false;
-    $i = 0;
-    while( (! $win) && $i<PlateauQuantik::NBCOLS){
-        $win = $aq->isColWin($i) || $aq->isRowWin($i) || $aq->isCornerWin($i);
-        $i++;
-    }
-    return $win;
 }
