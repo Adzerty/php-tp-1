@@ -176,4 +176,12 @@ class HTMLmaker
         $retour .= "<input type='submit' name='reset' value='recommencer' ></form>\n";
         return $retour;
     }
+
+    public static function getDivNul():string{
+        $retour  = "<form class='fin' >\n";
+        $retour  .= "\t<p><b>Match nul</b></p>\n";
+        $retour  .= "\t<p> Le joueur <b>".($_SESSION['couleurActive'] == PieceQuantik::WHITE ? "blanc ":"noir ")."</b>ne peut pas jouer de coup valide</p>\n";
+        $retour .= "<input type='submit' name='reset' value='recommencer' ></form>\n";
+        return $retour;
+    }
 }

@@ -92,7 +92,7 @@ switch($_SESSION['etat']) {
         if($aq->canPoserPiece($_SESSION['couleurActive'] == PieceQuantik::BLACK ? $_SESSION['set_noir'] : $_SESSION['set_blanc'])){
             $_SESSION['couleurActive'] == PieceQuantik::WHITE ? pagePieceBlanche() : pagePieceNoire();
         }else{
-            pageFin();
+            pageNul();
         }
 
         break;
@@ -179,6 +179,22 @@ function pageFin(){
     echo HTMLmaker::getDebutHTML();
 
     echo HTMLmaker::getDivFinPartie();
+
+    echo "<div class=\"containerPieces\">";
+    echo HTMLmaker::getDivPiecesDisponibles($_SESSION['set_blanc']);
+    echo HTMLmaker::getDivPiecesDisponibles($_SESSION['set_noir']);
+    echo "</div>";
+
+    echo HTMLmaker::getDivPlateauQuantik($_SESSION['plateau']);
+
+
+    echo HTMLmaker::getFinHTML();
+}
+
+function pageNul(){
+    echo HTMLmaker::getDebutHTML();
+
+    echo HTMLmaker::getDivNul();
 
     echo "<div class=\"containerPieces\">";
     echo HTMLmaker::getDivPiecesDisponibles($_SESSION['set_blanc']);
