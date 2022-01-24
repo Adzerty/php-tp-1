@@ -24,7 +24,7 @@ class HTMLmaker
         $retour .= "\t<body>\n";
 
         $classLogo = isset($_SESSION['couleurActive']) ? "smallLogo" : "logo";
-        $retour .= "<div class='$classLogo'><img src='../img/logo.png' alt='Quantik'></div>\n";
+        $retour .= "<div class='$classLogo'><a href='quantik.php?reset' ><img src='../img/logo.png' alt='Quantik' ></a></div>\n";
 
       return $retour;
     }
