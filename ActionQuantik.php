@@ -67,6 +67,29 @@ class ActionQuantik
     }
 
     /**
+     * @param ArrayPieceQuantik $setJoueur
+     * @return bool
+     */
+    public function canPoserPiece(ArrayPieceQuantik $setJoueur):bool{
+        $boolRet = false;
+        for($indPiece = 0; $indPiece < $setJoueur->getTaille() && !$boolRet; $indPiece++){ //On parcourt les pieces du joueur
+            $pieceTmp = $setJoueur->getPieceQuantik($indPiece);
+            if($pieceTmp->getForme() != 0){
+
+                //Pour chaque pièce on vérifie chaque case du plateau si on peut placer
+                //si on trouve au moins une case où on peut placer on arrête d'itérer
+                for($ligne = 0; $ligne < PlateauQuantik::NBROWS && !$boolRet; $ligne++){
+                    for($col = 0; $col < PlateauQuantik::NBCOLS && !$boolRet; $col++){
+                        $boolRet = $this->isValidatePose($ligne, $col, $pieceTmp);
+                    }
+                }
+            }
+        }
+
+        return $boolRet;
+    }
+
+    /**
      * @param int $rowNum
      * @param int $colNum
      * @param PieceQuantik $piece

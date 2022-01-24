@@ -88,8 +88,8 @@ try {
 
 switch($_SESSION['etat']) {
     case 'choixPiece':
-
-        if(ActionQuantik::canPoserPiece($_SESSION['couleurActive'] == PieceQuantik::BLACK ? $_SESSION['set_noir'] : $_SESSION['set_blanc'])){
+        $aq = new ActionQuantik($_SESSION['plateau']);
+        if($aq->canPoserPiece($_SESSION['couleurActive'] == PieceQuantik::BLACK ? $_SESSION['set_noir'] : $_SESSION['set_blanc'])){
             $_SESSION['couleurActive'] == PieceQuantik::WHITE ? pagePieceBlanche() : pagePieceNoire();
         }else{
             pageFin();
