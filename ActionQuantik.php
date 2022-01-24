@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @author : Colin PALLIER & Adrien PESTEL
  * Classe permettant de simuler les actions possibles
@@ -107,7 +106,7 @@ class ActionQuantik
      */
     public function __toString():string
     {
-        return "coucou";
+        return "ActionQuantik sur le plateau : ".$this->plateau;
     }
 
     /**
