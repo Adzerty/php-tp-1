@@ -16,7 +16,7 @@
 - Avoir clone le repo
 
 ## Lancement
-Lancer lancer le script quantik.php pour démarrer le jeu
+Lancer lancer le script `pages/quantik.php` pour démarrer le jeu
 
 ## Reset
 Pour reset la partie :
