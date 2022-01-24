@@ -113,8 +113,15 @@ switch($_SESSION['etat']) { //Suivi de l'état du plateau
         pageFin();
         break;
     default: // sans doute etape=bug
-        echo QuantikUIGenerator::getPageErreur($_SESSION['message']);
+        pageErreur();
         exit(1);
+}
+
+function pageErreur(){
+    echo HTMLmaker::getDebutHTML();
+    echo HTMLmaker::pageErreur();
+    echo HTMLmaker::getFinHTML();
+
 }
 
 function pagePieceBlanche(){

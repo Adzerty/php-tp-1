@@ -187,4 +187,13 @@ class HTMLmaker
         $retour .= "<input type='submit' name='reset' value='recommencer' ></form>\n";
         return $retour;
     }
+
+    public static function pageErreur():string{
+
+        $retour = "<img src='../img/403.jpeg'>";
+        $retour .= "<h2>".$_SESSION['message']."</h2>";
+
+
+        return $retour;
+    }
 }
