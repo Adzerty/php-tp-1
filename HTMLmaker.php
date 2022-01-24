@@ -2,6 +2,9 @@
 /**
  * @author : Colin PALLIER & Adrien PESTEL
  * Classe permettant de créer un HTML
+ *
+ * GIT :
+ * https://www-apps.univ-lehavre.fr/forge/pallierpestel/quantikphp
  * https://github.com/Adzerty/php-tp-1
  */
 

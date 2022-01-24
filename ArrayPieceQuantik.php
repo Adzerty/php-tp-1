@@ -2,6 +2,9 @@
 /**
  * @author : Colin PALLIER & Adrien PESTEL
  * Classe permettant de simuler un tableau de pièces
+ *
+ * GIT :
+ * https://www-apps.univ-lehavre.fr/forge/pallierpestel/quantikphp
  * https://github.com/Adzerty/php-tp-1
  */
 class ArrayPieceQuantik{
@@ -72,6 +75,7 @@ class ArrayPieceQuantik{
     }
 
     /**
+     * Retourne la taille MAXIMALE de l'arrayPiece
      * @return int
      */
     public function getTaille(): int
@@ -80,6 +84,7 @@ class ArrayPieceQuantik{
     }
 
     /**
+     * Permet de définir la taille MAXIMAL d'un arrayPiece
      * @param int $taille
      */
     public function setTaille(int $taille): void

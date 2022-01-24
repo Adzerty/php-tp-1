@@ -1,7 +1,12 @@
 <?php
 /**
- * @author Dominique Fournier
- * @date janvier 2021
+ * @author Dominique Fournier & Colin PALLIER & Adrien PESTEL
+ * Classe maîtresse de l'application
+ * gère la session, l'état de jeu etc.
+ *
+ * GIT : 
+ * https://www-apps.univ-lehavre.fr/forge/pallierpestel/quantikphp
+ * https://github.com/Adzerty/php-tp-1
  */
 
 require_once("../PieceQuantik.php");
@@ -13,6 +18,7 @@ require_once("../HTMLmaker.php");
 
 session_start();
 
+//Si get contient une variable reset on vide la session pour démarrer une nouvelle partie à vide
 if (isset($_GET['reset'])){
     session_unset();
 }
@@ -30,13 +36,16 @@ if (empty($_SESSION)) { // initialisation des variables de session
 
 $pageHTML = "";
 
+//Permet d'effectuer les actions sur le plateau
 $aq = new ActionQuantik($_SESSION['plateau']);
 
 // on réalise les actions correspondant à l'action en cours :
 try {
-    if (isset($_GET['action'])) {
+    if(isset($_GET['action'])) {
+
         switch ($_GET['action']) {
-            case 'choisirJoueur':
+
+            case 'choisirJoueur': //Si les joueurs ont décidé du joueur de départ
                 if($_GET['joueur']=="blanc"){
                     $_SESSION['couleurActive'] = PieceQuantik::WHITE;
                 }elseif ($_GET['joueur']=="noir"){
@@ -50,11 +59,11 @@ try {
                 }
                 $_SESSION['etat'] = 'choixPiece';
                 break;
-            case 'choisirPiece':
+            case 'choisirPiece': //Si le joueur a choisi sa piece
                 $_SESSION['etat'] = 'posePiece';
 
                 break;
-            case 'poserPiece':
+            case 'poserPiece': //Si le joueur a posé sa piece
                 if($_SESSION['etat']!='choixPiece'){
                     ($_SESSION['couleurActive'] == PieceQuantik::WHITE ? $set_actif = &$_SESSION['set_blanc'] : $set_actif = &$_SESSION['set_noir']);
 
@@ -62,7 +71,7 @@ try {
                     $set_actif->removePieceQuantik($_GET['piece']);
                     $_SESSION['coups']++;
 
-                    if($aq->checkWin()) // Tester la victoire
+                    if($aq->checkWin()) // Test de la victoire
                     {
                         $_SESSION['etat'] = 'victoire';
                     }
@@ -73,10 +82,10 @@ try {
                     }
                 }
                 break;
-            case 'annulerChoix':
+            case 'annulerChoix': //Si le joueur a annulé son choix de piece
                 $_SESSION['etat'] = 'choixPiece';
                 break;
-            default:
+            default: //Action interdite
                 throw new \quantik\QuantikException("Action non valide");
         }
     }
@@ -85,9 +94,8 @@ try {
     $_SESSION['message'] = $exception->__toString();
 }
 
-switch($_SESSION['etat']) {
-    case 'choixPiece':
-        $aq = new ActionQuantik($_SESSION['plateau']);
+switch($_SESSION['etat']) { //Suivi de l'état du plateau
+    case 'choixPiece': //Afficher la page permettant de choisir une piece
         if($aq->canPoserPiece($_SESSION['couleurActive'] == PieceQuantik::BLACK ? $_SESSION['set_noir'] : $_SESSION['set_blanc'])){
             $_SESSION['couleurActive'] == PieceQuantik::WHITE ? pagePieceBlanche() : pagePieceNoire();
         }else{
@@ -95,13 +103,13 @@ switch($_SESSION['etat']) {
         }
 
         break;
-    case 'posePiece':
+    case 'posePiece': //Afficher la page permettant de poser une piece
         $_SESSION['couleurActive'] == PieceQuantik::WHITE ? pagePosePieceBlanche() : pagePosePieceNoire();
         break;
-    case 'choixJoueur':
+    case 'choixJoueur': //Afficher la page permettant de choisir un le premier joueur
         pageDebut();
         break;
-    case 'victoire':
+    case 'victoire': //Afficher la page permettant d'indiquer la victoire
         pageFin();
         break;
     default: // sans doute etape=bug

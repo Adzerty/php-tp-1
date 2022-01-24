@@ -3,16 +3,19 @@
 /**
  * @author : Colin PALLIER & Adrien PESTEL
  * Classe permettant de simuler un plateau de jeu
+ *
+ * GIT :
+ * https://www-apps.univ-lehavre.fr/forge/pallierpestel/quantikphp
  * https://github.com/Adzerty/php-tp-1
  */
 class PlateauQuantik
 {
-    //Definit la taille du plateau de jeu
+    //Constantes représentants la taille du plateau de jeu
     public const NBROWS = 4;
     public const NBCOLS = 4;
 
 
-    //Permet d'identifier un coin selon un numero
+    //Constantes représentants les coins
     public const NW = 0;
     public const NE = 1;
     public const SW = 2;
@@ -86,10 +89,9 @@ class PlateauQuantik
     }
 
     /**
+     * retourne une liste de pieceQuantik en fonction de la zone selectionnée
      * @param int $dir
      * @return ArrayPieceQuantik
-     *
-     * retourne une liste de pieceQuantik en fonction de la zone selectionnée
      */
     public function getCorner(int $dir): ArrayPieceQuantik
     {
@@ -156,11 +158,10 @@ class PlateauQuantik
     }
 
     /**
+     * retourne la zone à laquelle appartient la coordonnée selectionnée
      * @param int $rowNum
      * @param int $colNum
      * @return int
-     *
-     * retourne la zone à laquelle appartient la coordonnée selectionnée
      */
     public static function getCornerFromCoord(int $rowNum, int $colNum):int
     {

@@ -3,12 +3,18 @@
 /**
  * @author : Colin PALLIER & Adrien PESTEL
  * Classe permettant de simuler une piece de jeu
+ *
+ * GIT :
+ * https://www-apps.univ-lehavre.fr/forge/pallierpestel/quantikphp
  * https://github.com/Adzerty/php-tp-1
  */
 class PieceQuantik{
+
+    //Constantes représentants les couleurs de pièce
     public const WHITE = 0;
     public const BLACK = 1;
 
+    //Constantes représentants les formes de pièce
     public const VOID = 0;
     public const CUBE = 1;
     public const CONE = 2;
